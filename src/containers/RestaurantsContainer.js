@@ -8,15 +8,17 @@ class RestaurantsContainer extends Component {
   render() {
     return (
       <div>
-        <RestaurantInput />
+        <RestaurantInput addRestaurant={ this.props.addRestaurant }/>
         <Restaurants />
       </div>
     )
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapStateToProps = ({ restaurants }) => ({ restaurants })
 
-}
+const mapDispatchToProps = dispatch => ({
+  addRestaurant: restaurant => dispatch({ type: 'ADD_RESTAURANT', restaurant })
+})
 
-export default connect(null, mapDispatchToProps)(RestaurantsContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(RestaurantsContainer)
