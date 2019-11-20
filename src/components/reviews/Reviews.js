@@ -3,7 +3,12 @@ import Review from './Review';
 
 class Reviews extends Component {
 
-renderReviews = () => this.props.reviews.map(review => <Review key={review.key} review={review} deleteReview={ this.props.deleteReview }/>)
+renderReviews = () => this.props.reviews.map(review => {
+  if(review.restaurantId === this.props.restaurant.id){
+    return <Review review={ review } deleteReview={ this.props.deleteReview }/>
+    }
+  }
+)
 
   render() {
     return (
