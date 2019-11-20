@@ -10,7 +10,7 @@ export default function manageRestaurants(state = { restaurants: [], reviews: []
       return { ...state, restaurants: state.restaurants.filter(restaurant => restaurant.id !== action.id) }
 
     case 'ADD_REVIEW':
-      return { ...state, reviews: [...state.reviews, { ...action, id: cuid() } ] }
+      return { ...state, reviews: [...state.reviews, {text: action.review.text, restaurantId: action.review.restaurantId, id: cuid() } ] }
 
     default:
       return state
