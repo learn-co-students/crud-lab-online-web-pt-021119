@@ -12,6 +12,9 @@ export default function manageRestaurants(state = { restaurants: [], reviews: []
     case 'ADD_REVIEW':
       return { ...state, reviews: [...state.reviews, {text: action.review.text, restaurantId: action.review.restaurantId, id: cuid() } ] }
 
+    case 'DELETE_REVIEW':
+      
+
     default:
       return state
   }
