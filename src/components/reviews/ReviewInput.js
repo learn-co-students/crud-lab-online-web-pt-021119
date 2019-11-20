@@ -4,7 +4,8 @@ import Reviews from './Reviews';
 class ReviewInput extends Component {
 
   state ={
-    text: ''
+    text: '',
+    restaurantId: this.props.restaurant.id
   }
 
   handleOnChange = event => {
