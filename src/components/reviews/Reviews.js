@@ -3,7 +3,7 @@ import Review from './Review';
 
 class Reviews extends Component {
 
-renderReviews = () => this.props.reviews.map(review => <Review key={review.key} review={review}/>)
+renderReviews = () => this.props.reviews.map(review => <Review key={review.key} review={review} deleteReview={ this.props.deleteReview }/>)
 
   render() {
     return (
