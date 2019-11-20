@@ -6,6 +6,9 @@ export default function manageRestaurants(state = { restaurants: [] }, action) {
     case 'ADD_RESTAURANT':
       return { ...state, restaurants: [...state.restaurants, { text: action.restaurant, id: cuid() } ] }
 
+    case 'DELETE_RESTAURANT':
+      return { ...state, restaurants: state.restaurants.filter(restaurant => restaurant.id !== action.id) }
+
     default:
       return state
   }
