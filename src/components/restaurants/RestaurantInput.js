@@ -12,7 +12,6 @@ class RestaurantInput extends Component {
   }
 
   handleOnSubmit = () => {
-    event.preventDefault()
   }
 
 
