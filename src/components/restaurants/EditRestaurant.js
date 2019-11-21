@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 
-class EditReview extends Component {
+class EditRestaurant extends Component {
 
   state = {
-    id: this.props.review.id,
-    text: this.props.review.text,
-    restaurantId: this.props.review.restaurantId,
+    id: this.props.restaurant.id,
+    text: this.props.restaurant.text,
     show: false
   }
 
@@ -17,7 +16,7 @@ class EditReview extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault()
-    this.props.editReview({ ...this.state } )
+    this.props.editRestaurant({ ...this.state } )
     this.setState({
       show: false
     })
@@ -27,7 +26,7 @@ class EditReview extends Component {
     if(this.state.show){
         return(<form onSubmit={event => this.handleOnSubmit(event)}>
           <input type="text" onChange={event => this.handleOnChange(event)} value={this.state.text}></input>
-          <input type="submit" value="Edit Review"></input>
+          <input type="submit" value="Edit Restaurant"></input>
         </form>
       )
     }
@@ -45,4 +44,4 @@ class EditReview extends Component {
     }
   };
 
-export default EditReview;
+export default EditRestaurant;

@@ -9,6 +9,19 @@ export default function manageRestaurants(state = { restaurants: [], reviews: []
     case 'DELETE_RESTAURANT':
       return { ...state, restaurants: state.restaurants.filter(restaurant => restaurant.id !== action.id) }
 
+    case 'EDIT_RESTAURANT':
+    console.log(action)
+      return { ...state, restaurants: state.restaurants.map(
+        restaurant => {
+          if(restaurant.id === action.restaurant.id){
+            restaurant.text = action.restaurant.text
+            return restaurant
+          }else{
+            return restaurant
+          }
+        })
+      }
+
     case 'ADD_REVIEW':
       return { ...state, reviews: [...state.reviews, {text: action.review.text, restaurantId: action.review.restaurantId, id: cuid() } ] }
 
@@ -16,7 +29,6 @@ export default function manageRestaurants(state = { restaurants: [], reviews: []
       return { ...state, reviews: state.reviews.filter(review => review.id !== action.id) }
 
     case 'EDIT_REVIEW':
-    console.log(action)
       return { ...state, reviews: state.reviews.map(
         review => {
           if(review.id === action.review.id){
