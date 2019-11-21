@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import EditReview from './EditReview'
 
 class Review extends Component {
 
@@ -11,6 +12,7 @@ class Review extends Component {
           {review.text}
         </li>
         <button onClick={ () => this.props.deleteReview(review.id) }> X </button>
+        <EditReview review={review} editReview={ this.props.editReview } />
       </div>
     );
   }
